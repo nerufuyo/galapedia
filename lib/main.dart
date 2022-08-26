@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galapedia/common/constant.dart';
+import 'package:galapedia/presentation/pages/detail_page.dart';
 import 'package:galapedia/presentation/pages/home_page.dart';
 
 void main() {
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
         switch (settings.name) {
           case HomePage.routeName:
             return MaterialPageRoute(builder: (_) => const HomePage());
+          case DetailPage.routeName:
+            return MaterialPageRoute(builder: (_) => const DetailPage());
           default:
             return MaterialPageRoute(builder: (_) => const HomePage());
         }

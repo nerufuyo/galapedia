@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galapedia/common/constant.dart';
+import 'package:galapedia/presentation/pages/home/planets_page.dart';
+import 'package:iconly/iconly.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,58 +12,73 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeContent(),
+    Text(
+      'Index 1: Discovery',
+    ),
+    Text(
+      'Index 2: Favorite',
+    ),
+    Text(
+      'Index 3: Profile',
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.baby_changing_station),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.notifications,
-              size: 32,
-            ),
-            splashColor: lightBlue,
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Planets', style: littleTitleText),
-                Text('Moon', style: littleTitleText),
-                Text('Stars', style: littleTitleText),
-                Text('Constellation', style: littleTitleText),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: [
-                Container(
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.red)),
-                  child: Stack(
-                    children: [
-                      const Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        child: Icon(Icons.notifications, size: 50,),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        backgroundColor: darkBlue,
+        appBar: AppBar(
+          leadingWidth: 44,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Image.asset('assets/images/galapedia.png'),
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(IconlyBold.notification, size: 24),
+              splashColor: lightBlue,
+              onPressed: () {},
+            )
           ],
+        ),
+        body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+        bottomNavigationBar: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+          child: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            iconSize: 24,
+            selectedItemColor: white,
+            unselectedItemColor: gray.withOpacity(0.5),
+            showUnselectedLabels: false,
+            showSelectedLabels: false,
+            backgroundColor: lightBlue,
+            type: BottomNavigationBarType.fixed,
+            items: const [
+              BottomNavigationBarItem(
+                  icon: Icon(IconlyBold.home), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(IconlyBold.discovery), label: 'Discovery'),
+              BottomNavigationBarItem(
+                  icon: Icon(IconlyBold.heart), label: 'Favorite'),
+              BottomNavigationBarItem(
+                  icon: Icon(IconlyBold.profile), label: 'Profile'),
+            ],
+          ),
         ),
       ),
     );

@@ -35,6 +35,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
+  iconly: ^1.0.1
+  font_awesome_flutter: ^10.1.0
+  model_viewer_plus: ^1.3.1
+  flutter_svg: ^1.1.4
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +61,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/mercury.png
+    - assets/images/infologo.svg
+    - assets/images/firstnews.jpg
+    - assets/images/galapedia.svg
+    - assets/images/detailbg.jpg
+    - assets/models/mercury.glb
 
   # To add assets to your application, add an assets section, like this:
   # assets:
