@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galapedia/common/constant.dart';
+import 'package:galapedia/presentation/pages/discovery_page.dart';
 import 'package:galapedia/presentation/pages/home/planets_page.dart';
 import 'package:iconly/iconly.dart';
 
@@ -15,9 +16,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeContent(),
-    Text(
-      'Index 1: Discovery',
-    ),
+    DiscoveryPage(),
     Text(
       'Index 2: Favorite',
     ),

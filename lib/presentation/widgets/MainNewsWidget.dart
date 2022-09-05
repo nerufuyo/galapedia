@@ -33,7 +33,7 @@ class MainNewsWidget extends StatelessWidget {
               right: 16,
               child: Text(
                 'August 14, 2022',
-                style: boldDescriptionText,
+                style: mediumLiteTitleText,
               ),
             ),
             Positioned(

@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.17.5 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -39,6 +39,13 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   model_viewer_plus: ^1.3.1
   flutter_svg: ^1.1.4
+  equatable: ^2.0.5
+  get_it: ^7.2.0
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  provider: ^6.0.3
+  http: ^0.13.5
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
@@ -63,11 +70,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/mercury.png
-    - assets/images/infologo.svg
+    - assets/images/infologo.png
     - assets/images/firstnews.jpg
-    - assets/images/galapedia.svg
+    - assets/images/galapedia.png
     - assets/images/detailbg.jpg
     - assets/models/mercury.glb
+    - assets/images/galapedia.svg
+    - assets/images/infologo.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
